@@ -1,0 +1,39 @@
+{%extends "base.html" %}
+{%block title %}Add Owner{%endblock %}
+{%block content%}
+<form method="POST">
+    <h3 align="center">Add Owner</h3>
+    <div class="form-group">
+        <label for="ownerId">Id</label>
+        <input type="text" class="form-control" id="ownerId" name="ownerId"
+               placeholder="Enter Owner Id"/>
+    </div>
+    <div class="form-group">
+        <label for="ownerName">Name</label>
+        <input type="text" class="form-control" id="ownerName" name="ownerName"
+               placeholder="Enter Owner Name"/>
+    </div>
+    <div class="form-group">
+        <label for="ownerEmail">Email</label>
+        <input type="email" class="form-control" id="ownerEmail" name="ownerEmail"
+               placeholder="Enter Owner Email"/>
+    </div>
+    <div class="form-group">
+        <label for="ownerPhone">Phone</label>
+        <input type="text" class="form-control" id="ownerPhone" name="ownerPhone"
+               placeholder="Enter Owner Phone"/>
+    </div>
+    <div class="form-group">
+        <label for="ownerBirth">Birth</label>
+        <input type="text" class="form-control" id="ownerBirth" name="ownerBirth"
+               placeholder="Enter Owner Birth"/>
+    </div>
+    <div class="form-group">
+        <label for="ownerOrigin">Place of Origin</label>
+        <input type="text" class="form-control" id="ownerOrigin" name="ownerOrigin"
+               placeholder="Enter Owner Place of Origin"/>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{%endblock%}

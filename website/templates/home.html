@@ -1,0 +1,90 @@
+{%extends "base.html" %}
+{% block title %}Home{% endblock %}
+{%block content%}
+<h1 align="center">Search</h1>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" class="form-control" autocomplete="off">
+    <br />
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Add Picture</button>
+    </div>
+</form>
+
+{%if video%}
+<div>
+    <img src="{{url_for('static', filename='video/' + video)}}" height="400" width="400">
+</div>
+{%endif%}
+
+{% if infor_list|length != 0 %}
+    <h2 align="center">All Vehicles are detected</h2>
+{% else %}
+    <h2 align="center">There are no vehicle detected</h2>
+{% endif %}
+
+{%for infor in infor_list%}
+    {% set image = infor[0] %}
+        <div>
+            <img src="{{url_for('static', filename='video/' + image)}}" height="400" width="400">
+        </div>
+    {% if infor[1] != '0' %}
+        {% set car_id = infor[1] %}
+        <div class="form-group row">
+        <label for="staticCarId" class="col-sm-2 col-form-label">Car id:</label>
+        <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" id="staticCarId"
+             value="{{car_id}}">
+        </div>
+        </div>
+    {% endif %}
+
+    {%if infor|length == 3%}
+        {% set owner = infor[2] %}
+        <h4 align="center">Information of Owner</h4>
+        <div class="form-group row">
+            <label for="staticId" class="col-sm-2 col-form-label">Id:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticId"
+                 value="{{owner.id}}">
+            </div>
+
+            <label for="staticName" class="col-sm-2 col-form-label">Name:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticName"
+             value="{{owner.name}}">
+            </div>
+
+            <label for="staticBirth" class="col-sm-2 col-form-label">Birth:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticBirth"
+                 value="{{owner.birth}}">
+            </div>
+
+            <label for="staticAge" class="col-sm-2 col-form-label">Age:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticAge"
+             value="{{owner.age}}">
+            </div>
+
+            <label for="staticOrigin" class="col-sm-2 col-form-label">Place of origin:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticOrigin"
+                 value="{{owner.place_of_origin}}">
+            </div>
+
+            <label for="staticOrigin" class="col-sm-2 col-form-label">Phone:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticPhone"
+                 value="{{owner.phone}}">
+            </div>
+
+            <label for="staticOrigin" class="col-sm-2 col-form-label">Email:</label>
+            <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                 value="{{owner.email}}">
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+{%endblock%}

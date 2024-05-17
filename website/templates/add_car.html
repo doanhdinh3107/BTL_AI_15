@@ -1,0 +1,19 @@
+{%extends "base.html" %}
+{% block title %}Add Car{% endblock %}
+{%block content%}
+<form method="POST">
+    <h3 align="center">Add Information</h3>
+    <div class="form-group">
+        <label for="carId">Car Id</label>
+        <input type="text" class="form-control" id="carId" name="carId"
+               placeholder="Enter Car Id"/>
+    </div>
+    <div class="form-group">
+        <label for="ownerId">Owner Id</label>
+        <input type="text" class="form-control" id="ownerId" name="ownerId"
+               placeholder="Enter Owner Id"/>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{%endblock%}
